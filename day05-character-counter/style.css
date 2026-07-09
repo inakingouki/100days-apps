@@ -1,0 +1,16 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 40px;
+}
+
+textarea {
+    width: 320px;
+    height: 160px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+p {
+    font-size: 20px;
+}
