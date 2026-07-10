@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>割り勘計算アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>割り勘計算アプリ</h1>
+
+    <div>
+        <label>合計金額</label>
+        <input id="totalAmount" type="number" placeholder="例：6000">
+    </div>
+
+    <div>
+        <label>人数</label>
+        <input id="peopleCount" type="number" placeholder="例：3">
+    </div>
+
+    <button onclick="calculateSplit()">計算する</button>
+
+    <h2 id="result">1人あたり：- 円</h2>
+    <p id="totalCollected">合計集金額：- 円</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
