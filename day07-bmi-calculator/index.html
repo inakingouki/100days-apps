@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康目安チェッカー</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>健康目安チェッカー</h1>
+
+        <div class="input-area">
+            <div class="input-row">
+                <label>身長(cm)</label>
+                <input id="height" type="number" placeholder="例：177">
+            </div>
+
+            <div class="input-row">
+                <label>体重(kg)</label>
+                <input id="weight" type="number" placeholder="例：72">
+            </div>
+
+            <div class="input-row">
+                <label>目標体重(kg)</label>
+                <input id="targetWeight" type="number" placeholder="例：68">
+            </div>
+
+            <button onclick="calculateBmi()">計算する</button>
+            <button class="sub-button" onclick="resetForm()">リセット</button>
+        </div>
+
+        <div class="result-area">
+            <h2 id="bmiResult">BMI：-</h2>
+            <p id="judgeResult" class="badge">判定：-</p>
+            <p id="standardWeightResult">標準体重：-</p>
+            <p id="differenceResult">標準体重との差：-</p>
+            <p id="targetDifferenceResult">目標体重との差：-</p>
+            <p id="adviceResult" class="advice">アドバイス：-</p>
+        </div>
+
+        <div class="history-area">
+            <h2>体重記録</h2>
+            <ul id="weightHistory"></ul>
+            <button class="sub-button" onclick="clearHistory()">記録を削除</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
