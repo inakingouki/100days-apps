@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランニングペース計算アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>ランニングペース計算</h1>
+
+        <div class="input-row">
+            <label>距離(km)</label>
+            <input id="distance" type="number" placeholder="例：10">
+        </div>
+
+        <div class="input-row">
+            <label>時間(分)</label>
+            <input id="minutes" type="number" placeholder="例：60">
+        </div>
+
+        <button onclick="calculatePace()">計算する</button>
+
+        <div class="result-area">
+            <h2 id="paceResult">ペース：-</h2>
+            <p id="speedResult">時速：-</p>
+            <p id="adviceResult">アドバイス：-</p>
+
+            <h3>通過タイム</h3>
+            <ul id="lapList"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
