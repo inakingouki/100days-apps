@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>営業メールAIプロンプト生成ツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>営業メールAIプロンプト生成ツール</h1>
+        <p class="lead">営業メールをAIに作らせるためのプロンプトを作成します</p>
+
+        <div class="input-row">
+            <label>メールの目的</label>
+            <select id="emailPurpose">
+                <option value="商談後のお礼メール">商談後のお礼メール</option>
+                <option value="日程調整メール">日程調整メール</option>
+                <option value="資料送付メール">資料送付メール</option>
+                <option value="再提案メール">再提案メール</option>
+                <option value="失注防止メール">失注防止メール</option>
+                <option value="検討状況の確認メール">検討状況の確認メール</option>
+                <option value="決裁者への共有依頼メール">決裁者への共有依頼メール</option>
+                <option value="返信催促メール">返信催促メール</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <label>相手の名前・会社名</label>
+            <input id="customerName" type="text" placeholder="例：株式会社〇〇 山田様">
+        </div>
+
+        <div class="input-row">
+            <label>商材</label>
+            <input id="productName" type="text" placeholder="例：コンプライアンス研修サービス">
+        </div>
+
+        <div class="input-row">
+            <label>商談フェーズ</label>
+            <select id="salesPhase">
+                <option value="初回接点">初回接点</option>
+                <option value="初回商談後">初回商談後</option>
+                <option value="提案前">提案前</option>
+                <option value="提案後">提案後</option>
+                <option value="見積もり提示後">見積もり提示後</option>
+                <option value="稟議中">稟議中</option>
+                <option value="失注前">失注前</option>
+                <option value="受注後">受注後</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <label>相手の課題</label>
+            <input id="customerIssue" type="text" placeholder="例：若手社員にコンプライアンス意識が定着しない">
+        </div>
+
+        <div class="input-row">
+            <label>先方からの返信・商談メモ</label>
+            <textarea id="customerReply" class="large-textarea" placeholder="先方からの返信文や商談メモをそのまま貼り付け"></textarea>
+        </div>
+
+        <div class="input-row">
+            <label>懸念点・ネック（複数選択可）</label>
+
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="concern" value="予算"> 予算
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="concern" value="導入時期"> 導入時期
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="concern" value="社内稟議"> 社内稟議
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="concern" value="上長決裁"> 上長決裁
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="concern" value="他社比較"> 他社比較
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="concern" value="必要性が弱い"> 必要性が弱い
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="concern" value="現場が忙しい"> 現場が忙しい
+                </label>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <label>相手の温度感</label>
+            <select id="temperature">
+                <option value="前向き">前向き</option>
+                <option value="やや前向き">やや前向き</option>
+                <option value="検討中">検討中</option>
+                <option value="慎重">慎重</option>
+                <option value="反応薄い">反応薄い</option>
+                <option value="失注気味">失注気味</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <label>次回提案内容</label>
+            <input id="nextProposal" type="text" placeholder="例：他社事例を交えた具体的な提案">
+        </div>
+
+        <div class="input-row">
+            <label>相手に取ってほしい行動</label>
+            <select id="nextAction">
+                <option value="日程候補をもらう">日程候補をもらう</option>
+                <option value="資料を確認してもらう">資料を確認してもらう</option>
+                <option value="社内共有してもらう">社内共有してもらう</option>
+                <option value="決裁者を紹介してもらう">決裁者を紹介してもらう</option>
+                <option value="課題を追加で教えてもらう">課題を追加で教えてもらう</option>
+                <option value="見積もりを確認してもらう">見積もりを確認してもらう</option>
+                <option value="返信をもらう">返信をもらう</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <label>送信者の立場</label>
+            <select id="senderRole">
+                <option value="営業担当">営業担当</option>
+                <option value="カスタマーサクセス">カスタマーサクセス</option>
+                <option value="講師">講師</option>
+                <option value="責任者">責任者</option>
+                <option value="代表">代表</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <label>トーン</label>
+            <select id="tone">
+                <option value="かなり丁寧">かなり丁寧</option>
+                <option value="自然">自然</option>
+                <option value="少しカジュアル">少しカジュアル</option>
+                <option value="やや強めに次回提案">やや強めに次回提案</option>
+                <option value="押し売り感をなくす">押し売り感をなくす</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <label>文量</label>
+            <select id="length">
+                <option value="短め">短め</option>
+                <option value="標準">標準</option>
+                <option value="丁寧に長め">丁寧に長め</option>
+            </select>
+        </div>
+
+        <button onclick="generatePrompt()">AI用プロンプトを作成する</button>
+        <button class="sub-button" onclick="copyPrompt()">コピーする</button>
+        <button class="sub-button" onclick="resetForm()">リセット</button>
+
+        <div class="result-area">
+            <h2>ChatGPTに貼るプロンプト</h2>
+            <textarea id="promptResult" class="output-textarea" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
