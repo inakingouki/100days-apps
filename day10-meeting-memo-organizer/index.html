@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商談メモ整理プロンプト生成ツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>商談メモ整理プロンプト生成ツール</h1>
+        <p class="lead">商談メモをAIで整理するためのプロンプトを作成します</p>
+
+        <div class="input-row">
+            <label>会社名・相手名</label>
+            <input id="customerName" type="text" placeholder="例：株式会社〇〇 山田様">
+        </div>
+
+        <div class="input-row">
+            <label>商材</label>
+            <input id="productName" type="text" placeholder="例：コンプライアンス研修サービス">
+        </div>
+
+        <div class="input-row">
+            <label>商談フェーズ</label>
+            <select id="salesPhase">
+                <option value="初回商談">初回商談</option>
+                <option value="提案前">提案前</option>
+                <option value="提案後">提案後</option>
+                <option value="見積もり提示後">見積もり提示後</option>
+                <option value="稟議中">稟議中</option>
+                <option value="失注前">失注前</option>
+                <option value="受注後">受注後</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <label>商談メモ</label>
+            <textarea id="meetingMemo" class="large-textarea" placeholder="商談中に取ったメモをそのまま貼り付け"></textarea>
+        </div>
+
+        <div class="input-row">
+            <label>整理したい観点</label>
+
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="organizePoint" value="顧客課題" checked> 顧客課題
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="organizePoint" value="ニーズ"> ニーズ
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="organizePoint" value="決裁者"> 決裁者
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="organizePoint" value="予算感"> 予算感
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="organizePoint" value="導入時期"> 導入時期
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="organizePoint" value="懸念点"> 懸念点
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="organizePoint" value="次回アクション" checked> 次回アクション
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="organizePoint" value="お礼メール案"> お礼メール案
+                </label>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <label>出力の詳しさ</label>
+            <select id="detailLevel">
+                <option value="簡潔に">簡潔に</option>
+                <option value="標準">標準</option>
+                <option value="詳しく">詳しく</option>
+            </select>
+        </div>
+
+        <button onclick="generatePrompt()">AI用プロンプトを作成する</button>
+        <button class="sub-button" onclick="copyPrompt()">コピーする</button>
+        <button class="sub-button" onclick="resetForm()">リセット</button>
+
+        <div class="result-area">
+            <h2>ChatGPTに貼るプロンプト</h2>
+            <p class="note">下の文章をコピーしてChatGPTに貼り付けてください。</p>
+            <textarea id="promptResult" class="output-textarea" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
