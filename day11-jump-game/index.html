@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ジャンプゲーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>ジャンプゲーム</h1>
+
+    <p id="score">スコア: 0</p>
+
+    <div id="game">
+        <div id="player">🏃</div>
+        <div id="obstacle">🌵</div>
+
+        <div id="gameOver">
+            <h2>ゲームオーバー</h2>
+            <p id="finalScore">スコア：0</p>
+            <button onclick="restartGame()">もう一度遊ぶ</button>
+        </div>
+    </div>
+
+    <p>スペースキーでジャンプ</p>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
