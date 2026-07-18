@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eef5ff;
+    color: #222;
+    font-family:
+        Arial,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
+.page-container {
+    width: min(94%, 850px);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 8px;
+}
+
+.description {
+    margin-top: 0;
+    color: #555;
+}
+
+.game {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    border: 4px solid #333;
+    border-radius: 16px;
+    background:
+        linear-gradient(to bottom,
+            #bce8ff 0%,
+            #eefaff 72%,
+            #ddc28d 72%,
+            #c99d57 100%);
+    user-select: none;
+}
+
+.score-board {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    z-index: 20;
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ground {
+    position: absolute;
+    right: 0;
+    bottom: 78px;
+    left: 0;
+    height: 5px;
+    background: #4d3a28;
+}
+
+.player {
+    position: absolute;
+    bottom: 83px;
+    left: 75px;
+    z-index: 10;
+    width: 44px;
+    height: 76px;
+    transition: height 0.08s;
+}
+
+.player-head {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border: 3px solid #222;
+    border-radius: 50%;
+    background: #ffd6b3;
+}
+
+.player-body {
+    position: absolute;
+    top: 23px;
+    left: 6px;
+    width: 33px;
+    height: 35px;
+    border: 3px solid #222;
+    border-radius: 8px;
+    background: #2878d0;
+}
+
+.player-leg {
+    position: absolute;
+    bottom: 0;
+    width: 9px;
+    height: 23px;
+    border: 3px solid #222;
+    border-radius: 4px;
+    background: #333;
+}
+
+.player-leg-left {
+    left: 8px;
+}
+
+.player-leg-right {
+    right: 8px;
+}
+
+/* しゃがんだ状態 */
+.player.ducking {
+    height: 42px;
+}
+
+.player.ducking .player-head {
+    top: 10px;
+    left: 2px;
+}
+
+.player.ducking .player-body {
+    top: 14px;
+    left: 20px;
+    width: 31px;
+    height: 25px;
+}
+
+.player.ducking .player-leg {
+    bottom: 0;
+    width: 23px;
+    height: 9px;
+}
+
+.player.ducking .player-leg-left {
+    left: 8px;
+}
+
+.player.ducking .player-leg-right {
+    right: -5px;
+}
+
+.obstacle {
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cactus {
+    bottom: 83px;
+    width: 47px;
+    height: 66px;
+    font-size: 57px;
+    line-height: 1;
+}
+
+.bird {
+    bottom: 142px;
+    width: 58px;
+    height: 38px;
+    font-size: 43px;
+    line-height: 1;
+    transform: scaleX(-1);
+}
+
+.message-screen {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255 255 255 / 82%);
+}
+
+.message-screen h2 {
+    margin: 0 0 14px;
+    font-size: 34px;
+}
+
+.message-screen p {
+    margin: 5px;
+}
+
+.message-screen button,
+.controls button {
+    border: 0;
+    border-radius: 10px;
+    background: #1769aa;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.message-screen button {
+    margin-top: 18px;
+    padding: 12px 26px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.controls button {
+    min-width: 140px;
+    padding: 14px 22px;
+}
+
+.controls button:hover,
+.message-screen button:hover {
+    background: #0e4f84;
+}
+
+.controls button:active,
+.message-screen button:active {
+    transform: translateY(2px);
+}
+
+.instructions {
+    color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .game {
+        height: 320px;
+    }
+
+    .player {
+        left: 45px;
+    }
+
+    .score-board {
+        top: 10px;
+        right: 12px;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .controls button {
+        min-width: 120px;
+    }
+}

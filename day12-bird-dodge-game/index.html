@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Dodge Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="page-container">
+        <h1>Bird Dodge Game</h1>
+
+        <p class="description">
+            サボテンはジャンプ、鳥はしゃがんで回避しよう！
+        </p>
+
+        <section id="game" class="game" aria-label="ゲーム画面">
+            <div class="score-board">
+                <span>SCORE: <strong id="score">0</strong></span>
+                <span>HIGH: <strong id="high-score">0</strong></span>
+            </div>
+
+            <div id="player" class="player" aria-label="プレイヤー">
+                <div class="player-head"></div>
+                <div class="player-body"></div>
+                <div class="player-leg player-leg-left"></div>
+                <div class="player-leg player-leg-right"></div>
+            </div>
+
+            <div id="obstacle" class="obstacle cactus hidden" aria-hidden="true">
+                🌵
+            </div>
+
+            <div class="ground"></div>
+
+            <div id="start-screen" class="message-screen">
+                <h2>Bird Dodge Game</h2>
+                <p>スペースキー：ジャンプ</p>
+                <p>↓キー：しゃがむ</p>
+                <button id="start-button" type="button">ゲームスタート</button>
+            </div>
+
+            <div id="game-over-screen" class="message-screen hidden">
+                <h2>GAME OVER</h2>
+                <p>
+                    SCORE:
+                    <strong id="final-score">0</strong>
+                </p>
+                <button id="restart-button" type="button">もう一度遊ぶ</button>
+            </div>
+        </section>
+
+        <div class="controls">
+            <button id="jump-button" type="button">ジャンプ</button>
+            <button id="duck-button" type="button">しゃがむ</button>
+        </div>
+
+        <p class="instructions">
+            PC：スペースキーでジャンプ、↓キーでしゃがむ
+        </p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
